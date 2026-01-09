@@ -9,8 +9,8 @@ import type {
   ExcalidrawFile,
   ExcalidrawElement,
   ExcalidrawBoundElement,
-  DEFAULT_APP_STATE,
 } from '../types/excalidraw.js';
+import { DEFAULT_APP_STATE } from '../types/excalidraw.js';
 import type { LayoutedGraph, LayoutedNode, LayoutedEdge } from '../types/dsl.js';
 
 const SOURCE_URL = 'https://github.com/swiftlysingh/excalidraw-cli';

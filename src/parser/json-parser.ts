@@ -11,8 +11,8 @@ import type {
   GraphNode,
   GraphEdge,
   NodeType,
-  DEFAULT_LAYOUT_OPTIONS,
 } from '../types/dsl.js';
+import { DEFAULT_LAYOUT_OPTIONS } from '../types/dsl.js';
 
 /**
  * Validate node type

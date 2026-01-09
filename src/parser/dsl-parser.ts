@@ -20,8 +20,8 @@ import type {
   GraphEdge,
   LayoutOptions,
   NodeType,
-  DEFAULT_LAYOUT_OPTIONS,
 } from '../types/dsl.js';
+import { DEFAULT_LAYOUT_OPTIONS } from '../types/dsl.js';
 
 interface Token {
   type: 'node' | 'arrow' | 'label' | 'directive' | 'newline';

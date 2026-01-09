@@ -4,7 +4,9 @@
  * Uses ELK (Eclipse Layout Kernel) for automatic graph layout.
  */
 
-import ELK from 'elkjs/lib/elk.bundled.js';
+import _ELK from 'elkjs/lib/elk.bundled.js';
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const ELK = _ELK as any;
 import type {
   FlowchartGraph,
   LayoutedGraph,

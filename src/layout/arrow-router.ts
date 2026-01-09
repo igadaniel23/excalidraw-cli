@@ -106,7 +106,8 @@ export function calculateStartBinding(
     y: targetNode.y + targetNode.height / 2,
   };
 
-  return findEdgeConnectionPoint(sourceNode, targetCenter);
+  const result = findEdgeConnectionPoint(sourceNode, targetCenter);
+  return { point: { x: result.x, y: result.y }, binding: result.binding };
 }
 
 /**
@@ -121,5 +122,6 @@ export function calculateEndBinding(
     y: sourceNode.y + sourceNode.height / 2,
   };
 
-  return findEdgeConnectionPoint(targetNode, sourceCenter);
+  const result = findEdgeConnectionPoint(targetNode, sourceCenter);
+  return { point: { x: result.x, y: result.y }, binding: result.binding };
 }

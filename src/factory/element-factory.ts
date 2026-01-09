@@ -5,7 +5,8 @@
  */
 
 import { nanoid } from 'nanoid';
-import type { ExcalidrawElementBase, DEFAULT_ELEMENT_STYLE } from '../types/excalidraw.js';
+import type { ExcalidrawElementBase } from '../types/excalidraw.js';
+import { DEFAULT_ELEMENT_STYLE } from '../types/excalidraw.js';
 
 // Index counter for z-ordering
 let indexCounter = 0;
