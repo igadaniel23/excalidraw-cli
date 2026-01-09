@@ -146,6 +146,19 @@ const input = {
 const json2 = await createFlowchartFromJSON(input);
 ```
 
+## Examples
+
+Here are some flowcharts created with excalidraw-cli:
+
+### Simple Flow
+![Simple Flow](assets/up.png)
+
+### iOS App Architecture
+![iOS App Architecture](assets/ios-app-architecture.png)
+
+### LeetCode Problem Solving Flow
+![LeetCode Flow](assets/leetcode.png)
+
 ## Output
 
 The generated `.excalidraw` files can be:
