@@ -98,14 +98,13 @@ export function createFileData(
     resolvedSrc = resolveStickerPath(src, libraryPath);
   }
 
-  // For URLs, store directly without fetching
+  // Remote URLs are not supported - Excalidraw requires base64-encoded data URLs
   if (isUrl(resolvedSrc)) {
-    return {
-      mimeType: getMimeType(resolvedSrc),
-      id: fileId,
-      dataURL: resolvedSrc,
-      created: Date.now(),
-    };
+    console.warn(
+      `Remote URLs are not supported for images: ${resolvedSrc}\n` +
+        `  Download the image locally and use a file path instead.`
+    );
+    return null;
   }
 
   // For local files, read and base64 encode

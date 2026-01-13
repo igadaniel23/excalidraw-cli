@@ -20,7 +20,7 @@ const program = new Command();
 program
   .name('excalidraw-cli')
   .description('Create Excalidraw flowcharts from DSL, JSON, or DOT')
-  .version('1.0.0');
+  .version('1.0.1');
 
 /**
  * Create command - main flowchart creation
@@ -36,10 +36,11 @@ program
   .option('-d, --direction <dir>', 'Flow direction: TB, BT, LR, RL (default: TB)')
   .option('-s, --spacing <n>', 'Node spacing in pixels', '50')
   .option('--verbose', 'Verbose output')
-  .action(async (inputFile, options) => {
+  .action(async (inputFile, options, command) => {
     try {
       let input: string;
       let format = options.format;
+      const formatExplicitlySet = command.getOptionValueSource('format') === 'cli';
 
       // Get input from various sources
       if (options.inline) {
@@ -49,11 +50,13 @@ program
       } else if (inputFile) {
         input = readFileSync(inputFile, 'utf-8');
 
-        // Auto-detect format from file extension
-        if (inputFile.endsWith('.json')) {
-          format = 'json';
-        } else if (inputFile.endsWith('.dot') || inputFile.endsWith('.gv')) {
-          format = 'dot';
+        // Auto-detect format from file extension (only if --format not explicitly set)
+        if (!formatExplicitlySet) {
+          if (inputFile.endsWith('.json')) {
+            format = 'json';
+          } else if (inputFile.endsWith('.dot') || inputFile.endsWith('.gv')) {
+            format = 'dot';
+          }
         }
       } else {
         console.error('Error: No input provided. Use --inline, --stdin, or provide an input file.');
@@ -126,16 +129,19 @@ program
   .description('Parse and validate input without generating output')
   .argument('<input>', 'Input file path')
   .option('-f, --format <type>', 'Input format: dsl, json, dot (default: dsl)', 'dsl')
-  .action((inputFile, options) => {
+  .action((inputFile, options, command) => {
     try {
       const input = readFileSync(inputFile, 'utf-8');
       let format = options.format;
+      const formatExplicitlySet = command.getOptionValueSource('format') === 'cli';
 
-      // Auto-detect format from file extension
-      if (inputFile.endsWith('.json')) {
-        format = 'json';
-      } else if (inputFile.endsWith('.dot') || inputFile.endsWith('.gv')) {
-        format = 'dot';
+      // Auto-detect format from file extension (only if --format not explicitly set)
+      if (!formatExplicitlySet) {
+        if (inputFile.endsWith('.json')) {
+          format = 'json';
+        } else if (inputFile.endsWith('.dot') || inputFile.endsWith('.gv')) {
+          format = 'dot';
+        }
       }
 
       // Parse input
